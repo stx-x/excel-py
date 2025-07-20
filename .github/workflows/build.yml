@@ -17,8 +17,8 @@ jobs:
           python_ver: '3.13'
           spec: 'excel.py'
           requirements: 'requirements.txt'
-          upload_exe_with_name: 'ExcelTool'
-          options: --onefile, --name "ExcelTool", -c,
+          upload_exe_with_name: 'ExcelTool-Win'
+          options: --onefile, --name "ExcelTool-Win", -c,
 
   pyinstaller-build-mac:
     runs-on: macos-latest
@@ -29,5 +29,5 @@ jobs:
           python_ver: '3.13'
           spec: 'excel.py'
           requirements: 'requirements.txt'
-          upload_exe_with_name: 'ExcelTool'
-          options: --onefile, --name "ExcelTool", -c,
+          upload_exe_with_name: 'ExcelTool-Mac'
+          options: --onefile, --name "ExcelTool-Mac", -c,
