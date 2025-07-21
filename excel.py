@@ -187,7 +187,7 @@ def scan_directory_structure(folder_path: Path) -> Tuple[List[Path], Dict[str, A
     for file_path in all_excel_files:
         subdir_name = file_path.parent.name
         files_by_subdir[subdir_name]['all'].append(file_path)
-        if file_path.name.startswith('优') and file_path.suffix == '.xlsx':
+        if file_path.name.startswith('优') and (file_path.suffix == '.xlsx' or file_path.suffix == '.xls'):
             files_by_subdir[subdir_name]['target'].append(file_path)
 
     scan_summary = {
