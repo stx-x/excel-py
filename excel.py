@@ -510,9 +510,7 @@ def process_excel_files(folder_path: str) -> ProcessResult:
         if 'error' in file_stats:
             processing_stats['error_files'].append(file_stats['error'])
             processing_stats['skipped_files'] += 1
-            print(＂8＂ * 80)
             print(file_path)
-            print(＂8＂ * 80)
         else:
             all_dataframes.extend(file_dfs)
             processing_stats['total_sheets'] += file_stats.get('total_sheets', 0)
@@ -523,9 +521,7 @@ def process_excel_files(folder_path: str) -> ProcessResult:
                 processing_stats['processed_files'] += 1
             else:
                 processing_stats['skipped_files'] += 1
-                print(＂8＂ * 80)
                 print(file_path)
-                print(＂8＂ * 80)
 
             processing_stats['files_details'].append(file_stats)
 
