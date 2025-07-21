@@ -180,7 +180,7 @@ def scan_directory_structure(folder_path: Path) -> Tuple[List[Path], Dict[str, A
     all_excel_files = list(folder_path.glob("*/*.xlsx")) + list(folder_path.glob("*/*.xls"))
 
     # 匹配目标文件（以"优"开头的xlsx文件）
-    target_files = list(folder_path.glob("*/优*.xlsx"))
+    target_files = list(folder_path.glob("*/优*.xlsx")) + list(folder_path.glob("*/优*.xls"))
 
     # 按子文件夹分组统计
     files_by_subdir = defaultdict(lambda: {'all': [], 'target': []})
@@ -510,6 +510,9 @@ def process_excel_files(folder_path: str) -> ProcessResult:
         if 'error' in file_stats:
             processing_stats['error_files'].append(file_stats['error'])
             processing_stats['skipped_files'] += 1
+            print(＂8＂ * 80)
+            print(file_path)
+            print(＂8＂ * 80)
         else:
             all_dataframes.extend(file_dfs)
             processing_stats['total_sheets'] += file_stats.get('total_sheets', 0)
@@ -520,6 +523,9 @@ def process_excel_files(folder_path: str) -> ProcessResult:
                 processing_stats['processed_files'] += 1
             else:
                 processing_stats['skipped_files'] += 1
+                print(＂8＂ * 80)
+                print(file_path)
+                print(＂8＂ * 80)
 
             processing_stats['files_details'].append(file_stats)
 
