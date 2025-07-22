@@ -21,7 +21,6 @@ jobs:
           upload_exe_with_name: 'ExcelTool-Win'
           options: --onefile, --name "ExcelTool-Win", -c,
 
-jobs:
   pyinstaller-build:
     runs-on: windows-latest
     steps:
