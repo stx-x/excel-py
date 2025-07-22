@@ -6,6 +6,20 @@ from datetime import datetime
 import numpy as np
 from typing import List, Dict, Tuple, Optional
 
+
+def make_column_names_unique(df):
+    seen = {}
+    new_cols = []
+    for col in df.columns:
+        if col not in seen:
+            seen[col] = 0
+            new_cols.append(col)
+        else:
+            seen[col] += 1
+            new_cols.append(f"{col}_{seen[col]}")
+    df.columns = new_cols
+    return df
+
 class HTMLLogger:
     def __init__(self, log_file: Path):
         """HTML格式日志记录器"""
@@ -461,8 +475,9 @@ class ExcelProcessor:
                 if col not in df.columns:
                     df[col] = np.nan
 
-            # 重新排序列
-            # df = df.reindex(columns=all_columns)
+            # 重新
+            df = make_column_names_unique(df)
+            df = df.reindex(columns=all_columns)
             unified_dataframes.append(df)
 
         # 合并所有数据
