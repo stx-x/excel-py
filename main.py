@@ -462,7 +462,7 @@ class ExcelProcessor:
                     df[col] = np.nan
 
             # 重新排序列
-            df = df.reindex(columns=all_columns)
+            # df = df.reindex(columns=all_columns)
             unified_dataframes.append(df)
 
         # 合并所有数据
