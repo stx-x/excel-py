@@ -13,7 +13,7 @@ if not os.path.isfile(input_file):
 df = pd.read_excel(input_file)
 
 # 4. 清洗“身份证号”和“姓名”列
-for col in ['身份证号', '姓名']:
+for col in ['身份证号', '姓名', "收款人姓名", "收款人身份证号", "义务兵姓名","义务兵身份证号"]:
     if col in df.columns:
         df[col] = df[col].astype(str).str.replace(r'\s+', '', regex=True)
 
